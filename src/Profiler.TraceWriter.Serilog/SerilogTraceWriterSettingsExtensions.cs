@@ -2,7 +2,7 @@
 using Serilog.Events;
 using System;
 
-namespace Profiler.TraceWriter.Serilog
+namespace Profiler
 {
     public static class SerilogTraceWriterSettingsExtensions
     {
