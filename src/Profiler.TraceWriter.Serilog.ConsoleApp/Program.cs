@@ -23,14 +23,18 @@ namespace Profiler.TraceWriter.Serilog.ConsoleApp
             var profiler = new ProfilerConfiguration()
                 .UseSerilogTraceWriter(settings => settings
                     .UseLogEventLevel(LogEventLevel.Verbose)
+                    .UseDefaultTraceFormatter()
                     .UseLogger(logger))
                 .CreateProfiler();
 
             using (var section = profiler.Section("outer {number}", "one"))
             {
-                using (section.Section("inner {letter}", "z"))
+                using (var section2 = section.Section("inner {letter}", "z"))
                 {
+                    using (section2.Section("deep {sign}", "-"))
+                    {
 
+                    }
                 }
             }
         }

@@ -14,11 +14,17 @@ namespace Profiler.TraceWriter.Serilog
             return settings;
         }
 
-        public static ISerilogTraceWriterSettings UseMessageTemplateBuilder(
-            this ISerilogTraceWriterSettings settings, 
-            Func<string[], string> buildMessageTemplate)
+        public static ISerilogTraceWriterSettings UseDefaultTraceFormatter(
+            this ISerilogTraceWriterSettings settings)
         {
-            settings.BuildMessageTemplate = buildMessageTemplate;
+            return settings.UseTraceFormatter(new DefaultSerilogTraceFormatter());
+        }
+
+        public static ISerilogTraceWriterSettings UseTraceFormatter(
+            this ISerilogTraceWriterSettings settings,
+            ISerilogTraceFormatter formatter)
+        {
+            settings.Formatter = formatter;
             return settings;
         }
 

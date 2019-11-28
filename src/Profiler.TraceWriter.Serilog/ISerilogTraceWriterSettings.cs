@@ -10,6 +10,6 @@ namespace Profiler
 
         LogEventLevel LogEventLevel { get; set; }
 
-        Func<string[], string> BuildMessageTemplate { get; set; }
+        ISerilogTraceFormatter Formatter { get; set; }
     }
 }
