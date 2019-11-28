@@ -8,9 +8,6 @@ namespace Profiler
     {
         private readonly ISerilogTraceWriterSettings _settings;
 
-        private readonly Func<string[], string> _defaultBuildMessageTemplate = chain =>
-            $"{{elapsed}} ms: {string.Join(", ", chain)}";
-
         public SerilogTraceWriter(ISerilogTraceWriterSettings settings)
         {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
@@ -20,15 +17,12 @@ namespace Profiler
         {
             ILogger logger = _settings.Logger;
             LogEventLevel logEventLevel = _settings.LogEventLevel;
-            var getMessageTemplate = _settings.BuildMessageTemplate ?? _defaultBuildMessageTemplate;
 
-            string messageTemplate = getMessageTemplate(chain);
+            var formatter = _settings.Formatter;
 
-            object[] newArgs = new object[args.Length + 1];
-            newArgs[0] = elapsed.TotalMilliseconds;
-            args.CopyTo(newArgs, 1);
+            (string messageTemplate, object[] propertyValues) = formatter.Format(elapsed, chain, args);
 
-            logger.Write(logEventLevel, messageTemplate, newArgs);
+            logger.Write(logEventLevel, messageTemplate, propertyValues);
         }
     }
 }
