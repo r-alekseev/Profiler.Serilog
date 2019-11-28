@@ -10,10 +10,6 @@ namespace Profiler.TraceWriter.Serilog.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .Build();
-
             var logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 .WriteTo.File(new CompactJsonFormatter(), "log.txt")
