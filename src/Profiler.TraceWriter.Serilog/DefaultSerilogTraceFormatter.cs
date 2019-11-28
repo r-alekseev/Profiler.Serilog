@@ -4,10 +4,10 @@ namespace Profiler
 {
     internal class DefaultSerilogTraceFormatter : ISerilogTraceFormatter
     {
-        private readonly Func<string[], string> _buildMessageTemplate = chain =>
-            $"{{elapsed}} ms: {string.Join(", ", chain)}";
+        private readonly Func<Chain, string> _buildMessageTemplate = chain =>
+            $"{{elapsed}} ms: {string.Join(", ", chain.Formats)}";
 
-        public (string messageTemplate, object[] propertyValues) Format(TimeSpan elapsed, string[] chain, params object[] args)
+        public (string messageTemplate, object[] propertyValues) Format(TimeSpan elapsed, Chain chain, params object[] args)
         {
             string messageTemplate = _buildMessageTemplate(chain);
 

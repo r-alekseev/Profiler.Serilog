@@ -13,7 +13,7 @@ namespace Profiler
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         }
 
-        public void Write(TimeSpan elapsed, string[] chain, params object[] args)
+        public void Write(TimeSpan elapsed, Chain chain, params object[] args)
         {
             ILogger logger = _settings.Logger;
             LogEventLevel logEventLevel = _settings.LogEventLevel;

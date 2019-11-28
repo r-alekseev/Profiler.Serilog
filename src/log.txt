@@ -1,0 +1,6 @@
+{"@t":"2019-11-28T19:54:40.3470120Z","@mt":"{elapsed} ms: outer {number}, inner {letter}, deep {sign}","@l":"Verbose","elapsed":0.801,"number":"one","letter":"z","sign":"-"}
+{"@t":"2019-11-28T19:54:40.3879860Z","@mt":"{elapsed} ms: outer {number}, inner {letter}","@l":"Verbose","elapsed":47.435500000000005,"number":"one","letter":"z"}
+{"@t":"2019-11-28T19:54:40.3882060Z","@mt":"{elapsed} ms: outer {number}","@l":"Verbose","elapsed":48.4484,"number":"one"}
+{"@t":"2019-11-28T19:54:47.0876170Z","@mt":"{elapsed} ms: outer {number}, inner {letter}, deep {sign}","@l":"Verbose","elapsed":0.6702,"number":"one","letter":"z","sign":"-"}
+{"@t":"2019-11-28T19:54:47.1264220Z","@mt":"{elapsed} ms: outer {number}, inner {letter}","@l":"Verbose","elapsed":44.562000000000005,"number":"one","letter":"z"}
+{"@t":"2019-11-28T19:54:47.1267160Z","@mt":"{elapsed} ms: outer {number}","@l":"Verbose","elapsed":45.435700000000004,"number":"one"}
