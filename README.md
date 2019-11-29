@@ -47,3 +47,16 @@ var profiler = new ProfilerConfiguration()
         .UseLogger(logger))
     .CreateProfiler();
 ```
+
+#### Report Writer
+
+Call `UseSerilogReportWriter` method for set up writing metrics report to Serilog.
+
+Pass an instance of the logger configured above to `UseLogger` method.
+```csharp
+var profiler = new ProfilerConfiguration()
+    .UseSerilogReportWriter(settings => settings
+        .UseLogEventLevel(LogEventLevel.Information)
+        .UseLogger(logger))
+    .CreateProfiler();
+```

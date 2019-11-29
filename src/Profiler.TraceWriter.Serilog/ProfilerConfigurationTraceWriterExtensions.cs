@@ -2,7 +2,7 @@
 
 namespace Profiler
 {
-    public static class ProfilerConfigurationExtensions
+    public static class ProfilerConfigurationTraceWriterExtensions
     {
         public static IProfilerConfiguration UseSerilogTraceWriter(this IProfilerConfiguration settings,
             Action<ISerilogTraceWriterSettings> configure)
