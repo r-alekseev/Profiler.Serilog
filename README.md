@@ -3,7 +3,7 @@
 
 [Serilog](https://github.com/serilog/serilog) is simple .NET logging project with fully-structured events 
 
-This project contains components and configurations that provide the ability to write profiling traces and reports to the structured events in Serilog.
+This project contains components and configurations that provide the ability to write profiling traces and reports to structured events in Serilog.
 
 ## Configuration
 
